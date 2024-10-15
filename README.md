@@ -1,6 +1,3 @@
-
-
-
 #include <stdio.h>
 
 // Function to convert decimal to binary
