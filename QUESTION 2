@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+// Function prototypes:
+void deposit(float *account, float amount);
+void withdraw(float *account, float amount);
+void checkBalance(float account);
+
+int main() {
+    float account1 = 0.0, account2 = 0.0, account3 = 0.0; // Initial balances of three accounts
+    int choice, accountChoice;
+    float amount;
+
+    do {
+        // Main Menu:
+        printf("\n Banking Menu \n");
+        printf("1. Deposit\n");
+        printf("2. Withdraw\n");
+        printf("3. Check Balance\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1: // Deposit
+                printf("\nChoose Account (1, 2, or 3): ");
+                scanf("%d", &accountChoice);
+                printf("Enter amount to deposit: ");
+                scanf("%f", &amount);
+                if (amount < 0) {
+                    printf("Amount must be positive.\n");
+                    break;
+                }
+                if (accountChoice == 1) {
+                    deposit(&account1, amount);
+                } else if (accountChoice == 2) {
+                    deposit(&account2, amount);
+                } else if (accountChoice == 3) {
+                    deposit(&account3, amount);
+                } else {
+                    printf("Invalid account choice.\n");
+                }
+                break;
+
+            case 2: // Withdraw:
+                printf("\nChoose Account (1, 2, or 3): ");
+                scanf("%d", &accountChoice);
+                printf("Enter amount to withdraw: ");
+                scanf("%f", &amount);
+                if (amount < 0) {
+                    printf("Amount must be positive.\n");
+                    break;
+                }
+                if (accountChoice == 1) {
+                    withdraw(&account1, amount);
+                } else if (accountChoice == 2) {
+                    withdraw(&account2, amount);
+                } else if (accountChoice == 3) {
+                    withdraw(&account3, amount);
+                } else {
+                    printf("Invalid account choice.\n");
+                }
+                break;
+
+            case 3: // Check Balance:
+                printf("\nChoose Account (1, 2, or 3): ");
+                scanf("%d", &accountChoice);
+                if (accountChoice == 1) {
+                    checkBalance(account1);
+                } else if (accountChoice == 2) {
+                    checkBalance(account2);
+                } else if (accountChoice == 3) {
+                    checkBalance(account3);
+                } else {
+                    printf("Invalid account choice.\n");
+                }
+                break;
+
+            case 4: // Exit
+                printf("Exiting the program. Goodbye!\n");
+                break;
+
+            default:
+                printf("Invalid choice! Please choose a valid option.\n");
+        }
+
+    } while (choice != 4); // Continue until the user chooses to exit
+
+    return 0;}
